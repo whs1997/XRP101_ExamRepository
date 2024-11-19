@@ -37,6 +37,7 @@ public class StateAttack : PlayerState
 
     private void Attack()
     {
+        // 플레이어의 위치에서 radius 범위 탐색
         Collider[] cols = Physics.OverlapSphere(
             Controller.transform.position,
             Controller.AttackRadius
@@ -46,7 +47,11 @@ public class StateAttack : PlayerState
         foreach (Collider col in cols)
         {
             damagable = col.GetComponent<IDamagable>();
-            damagable.TakeHit(Controller.AttackValue);
+            // damagable에 null값 검사를 추가
+            if (damagable != null)
+            {
+                damagable.TakeHit(Controller.AttackValue);
+            }
         }
     }
 
