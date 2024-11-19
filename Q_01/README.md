@@ -12,4 +12,9 @@
 제시된 소스코드에서 문제가 발생하는 `원인을 모두 서술`하시오.
 
 ## 답안
-- 
+큐브컨트롤러를 가진 큐브 프리팹이 생성되기 전에 SetCubePosition을 불러와서 생성되지 않은 큐브를 참조해 NullReferenceException 에러가 뜬다.
+SetCubePosition을 CreateCube 뒤로 이동시켜 큐브가 생기는걸 확인했다.
+
+cubeController의 SetPoint값에 _cubeSetPoint를 줬다.
+set 접근자에 엑세스할 수 없어 SetPoint의 private set을 public으로 바꿨다.
+큐브가 생기고 3,0,3 으로 이동하는걸 확인했다.
