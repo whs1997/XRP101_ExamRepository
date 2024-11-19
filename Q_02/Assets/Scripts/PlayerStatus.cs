@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class PlayerStatus : MonoBehaviour
 {
-    private float moveSpeed; 
-
     public float MoveSpeed
     {
-        get => moveSpeed;
-        private set => moveSpeed = value; // 별도의 moveSpeed 값을 넣어주니 에러가 없어졌다
+        get => MoveSpeed;
+        private set => MoveSpeed = value;
     }
 
     private void Awake()
