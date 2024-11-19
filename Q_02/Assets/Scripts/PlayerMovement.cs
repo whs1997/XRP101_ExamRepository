@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
         direction.z = Input.GetAxisRaw("Vertical");
 
         if (direction == Vector3.zero) return;
-        
-        transform.Translate(_status.MoveSpeed * Time.deltaTime * direction);
+
+        transform.Translate(_status.MoveSpeed * Time.deltaTime * direction.normalized); // direction에 normalized를 넣어줘 해결했다.
     }
 }
