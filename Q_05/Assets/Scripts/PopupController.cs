@@ -30,10 +30,10 @@ public class PopupController : MonoBehaviour
 
     private void Activate()
     {
+        StartCoroutine(DeactivateRoutine());
         Debug.Log("Activate");
         GameManager.Instance.Pause();
         _popup.gameObject.SetActive(true);
-        StartCoroutine(DeactivateRoutine());
     }
 
     private void Deactivate()
@@ -45,7 +45,9 @@ public class PopupController : MonoBehaviour
 
     private IEnumerator DeactivateRoutine()
     {
-        yield return _wait;
+        Debug.Log($"ÄÚ·çÆ¾,{_wait},{_deactiveTime},{Time.timeScale}");
+        // yield return _wait;
+        yield return new WaitForSeconds(2);
         Deactivate();
     }
 }
