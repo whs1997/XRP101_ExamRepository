@@ -21,4 +21,18 @@
 제시된 프로젝트에서 발생하는 `문제들을 모두 서술`하고 올바르게 동작하도록 `소스코드를 개선`하시오.
 
 ## 답안
-- 
+
+플레이어를 터렛 옆으로 이동시켜도 총알을 발사하지 않는다.
+플레이어 body에 Rigidbody를 추가해 발사하는걸 확인했다. 총알에도 Rigidbody가 없는데 불러오려고 하는 오류가 나와 Rigidbody를 넣었다.
+
+NullReferenceException: Object reference not set to an instance of an object
+BulletController.OnTriggerEnter (UnityEngine.Collider other) (at Assets/Scripts/BulletController.cs:29)
+플레이어컨트롤러한테 _damageValue만큼 TakeHit을 시켜야 하는데 참조 에러가 뜬다.
+
+body의 부모 오브젝트 Player에서 PlayerController를 가져와 TakeHit을 하게 했더니 체력이 닳는걸 확인했다.
+총알이 플레이어를 뚫고 지나가 코드를 살펴보니 ReturnPool로 구현이 돼있어 TakeHit 이후 ReturnPool을 하게 했다.
+
+총알이 계속 빨라지는 문제가 생겨 ReturnPool 에서 _rigidbody.velocity = Vector3.zero;를 추가해 오브젝트풀에 돌아갈 때 속도가 없어지게 만들었다.
+
+플레이어가 죽을 때 소리가 안난다.
+별도의 사운드매니저 오브젝트를 만들고 싱글톤 인스턴스를 만들어 Die에서 인스턴스의 PlaySound를 재생하게했다.
