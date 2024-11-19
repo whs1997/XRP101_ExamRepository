@@ -18,6 +18,11 @@ public class GameManager : SingletonBehaviour<GameManager>
         Time.timeScale = 0f;
     }
 
+    public void Resume()
+    {
+        Time.timeScale = 1f;
+    }
+
     public void LoadScene(int buildIndex)
     {
         SceneManager.LoadScene(buildIndex);
