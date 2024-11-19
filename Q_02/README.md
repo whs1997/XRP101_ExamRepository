@@ -11,4 +11,7 @@
 두 가지 문제가 발생한 원인과 해결 방법을 모두 서술하시오.
 
 ## 답안
-- 
+Assets/Scripts/PlayerStatus.cs:10
+private set => MoveSpeed = value; 에서 문제가 발생한다.
+뭔가에 무한루프가 걸려서 별도의 moveSpeed 값을 만들어 getter setter의 MoveSpeed 대신 moveSpeed를 넣어주니 에러가 사라졌다.
+대각선으로 빠른건 이동할때 direction에 normalized를 넣어주니 해결됐다.
