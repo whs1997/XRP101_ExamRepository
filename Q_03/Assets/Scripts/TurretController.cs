@@ -21,6 +21,7 @@ public class TurretController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("АјАн");
             Fire(other.transform);
         }
     }

@@ -26,9 +26,14 @@ public class BulletController : PooledBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other
-                .GetComponent<PlayerController>()
-                .TakeHit(_damageValue);
+            PlayerController player = other.GetComponentInParent<PlayerController>();
+            if(player != null)
+            {
+                player.TakeHit(_damageValue);
+                Debug.Log($"{player.Hp}");
+                ReturnPool();
+            }
+
         }
     }
 
@@ -53,6 +58,8 @@ public class BulletController : PooledBehaviour
     {
         Pool.Push(this);
         gameObject.SetActive(false);
+
+        _rigidbody.velocity = Vector3.zero;
     }
 
     public override void OnTaken<T>(T t)

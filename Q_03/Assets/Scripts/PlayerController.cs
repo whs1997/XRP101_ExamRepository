@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     [field: Range(0, 100)]
     public int Hp { get; private set; }
 
-    private AudioSource _audio;
+    [SerializeField] AudioClip _audio;
 
     private void Awake()
     {
@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
 
     private void Init()
     {
-        _audio = GetComponent<AudioSource>();
+        // _audio = GetComponent<AudioSource>();
     }
     
     public void TakeHit(int damage)
@@ -32,7 +32,8 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
-        _audio.Play();
+        Debug.Log("플레이어 사망");
+        SoundManager.instance.PlaySound(_audio);
         gameObject.SetActive(false);
     }
 }
