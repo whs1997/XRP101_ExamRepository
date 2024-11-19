@@ -353,7 +353,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 952963315774766622, guid: 96bebdba8a050421ab5deca1ef4a2e96, type: 3}
       propertyPath: <AttackValue>k__BackingField
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 952963315774766623, guid: 96bebdba8a050421ab5deca1ef4a2e96, type: 3}
       propertyPath: m_Name
@@ -485,6 +485,10 @@ PrefabInstance:
     - target: {fileID: 6917818731315354534, guid: e1985e4dbcfde4499b9fdb3595f15341, type: 3}
       propertyPath: m_Name
       value: NormalMonster
+      objectReference: {fileID: 0}
+    - target: {fileID: 6917818731315354537, guid: e1985e4dbcfde4499b9fdb3595f15341, type: 3}
+      propertyPath: <MaxHp>k__BackingField
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6917818731315354541, guid: e1985e4dbcfde4499b9fdb3595f15341, type: 3}
       propertyPath: m_RootOrder

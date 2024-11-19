@@ -29,12 +29,12 @@ public class StateAttack : PlayerState
     {
         Debug.Log("Attack On Update");
     }
-
+    /*
     public override void Exit()
     {
-        Machine.ChangeState(StateType.Idle);
+        
     }
-
+    */
     private void Attack()
     {
         // 플레이어의 위치에서 radius 범위 탐색
@@ -53,6 +53,8 @@ public class StateAttack : PlayerState
                 damagable.TakeHit(Controller.AttackValue);
             }
         }
+        // Exit()에서 코드 이동
+        Machine.ChangeState(StateType.Idle);
     }
 
     public IEnumerator DelayRoutine(Action action)
@@ -60,7 +62,7 @@ public class StateAttack : PlayerState
         yield return _wait;
 
         Attack();
-        Exit();
+        //Exit();
     }
 
 }
